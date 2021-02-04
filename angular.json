@@ -28,7 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
@@ -124,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "algamoney-ui"
+  "defaultProject": "algamoney-ui",
+  "cli": {
+    "analytics": "0c4055da-03b3-4322-9d8e-c4727e786439"
+  }
 }
