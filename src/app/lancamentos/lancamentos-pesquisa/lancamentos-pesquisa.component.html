@@ -1,13 +1,16 @@
 <div class="container">
+
+  <form autocomplete="off" (ngSubmit)="pesquisar()">
+
   <div class="p-grid">
 
-    <div class="p-col-12">
+   <div class="p-col-12">
       <h1>Lançamentos</h1>
     </div>
 
     <div class="p-col-12 p-fluid">
       <label>Descrição</label>
-      <input pInputText type="text">
+      <input pInputText type="text" name="descricao" [(ngModel)]="descricao">
     </div>
 
     <div class="p-col-12">
@@ -23,7 +26,7 @@
     </div>
 
   </div>
-
+</form>
   <div class="p-grid">
     <div class="p-col-12">
       <app-app-lancamentos-grid [lancamentos]="lancamentos"></app-app-lancamentos-grid>
@@ -32,5 +35,4 @@
       <a pButton label="Novo Lançamento"></a>
     </div>
   </div>
-
 </div>
