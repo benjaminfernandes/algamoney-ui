@@ -10,26 +10,29 @@
 
     <div class="p-col-12 p-fluid">
       <label>Descrição</label>
-      <input pInputText type="text" name="descricao" [(ngModel)]="descricao">
+      <input pInputText type="text" name="descricao" [(ngModel)]="filtro.descricao">
     </div>
 
     <div class="p-col-12">
       <label style="display: block">Vencimento</label>
-      <input pInputText type="text" style="width: 95px">
+      <p-calendar [inputStyle]="{width: '105px'}" name="vencimentoInicio"
+        [(ngModel)]="filtro.dataVencimentoInicio"></p-calendar>
 
       <label>até</label>
-      <input pInputText type="text" style="width: 95px">
+      <p-calendar [inputStyle]="{width: '105px'}" name="vencimentoFim"
+        [(ngModel)]="filtro.dataVencimentoFim" dateFormat="dd/mm/yy"></p-calendar>
     </div>
 
     <div class="p-col-12">
       <button pButton type="submit" label="Pesquisar"></button>
     </div>
-
   </div>
 </form>
   <div class="p-grid">
     <div class="p-col-12">
-      <app-app-lancamentos-grid [lancamentos]="lancamentos"></app-app-lancamentos-grid>
+      <app-app-lancamentos-grid (aoMudarPagina)="aoMudarPagina($event)" [lancamentos]="lancamentos"
+      [totalRegistros]="totalRegistros" [itensPorPagina]="filtro.itensPorPagina"
+        (lancamentoExcluir)="excluir($event)"></app-app-lancamentos-grid>
     </div>
     <div class="p-col-12">
       <a pButton label="Novo Lançamento"></a>

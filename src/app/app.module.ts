@@ -1,3 +1,4 @@
+import { PessoaService } from './pessoas/pessoa.service';
 import { LancamentoService } from './lancamentos/lancamento.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
@@ -27,6 +28,7 @@ registerLocaleData(localePt);
   ],
   providers: [
     LancamentoService,
+    PessoaService,
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]

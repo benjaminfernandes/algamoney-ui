@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pessoas-grid',
@@ -8,5 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PessoasGridComponent {
 
 @Input() pessoas = [];
+@Input() totalRegistros;
+@Input() itensPorPagina;
 
+@Output() aoMudarPagina = new EventEmitter();
+ 
+mudarPagina(event) {
+    this.aoMudarPagina.emit(event);
+  }
 }
