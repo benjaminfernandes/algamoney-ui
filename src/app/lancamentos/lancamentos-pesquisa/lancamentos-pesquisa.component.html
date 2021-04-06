@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form autocomplete="off" (ngSubmit)="pesquisar()">
+  <form autocomplete="off">
 
   <div class="p-grid">
 
@@ -24,7 +24,7 @@
     </div>
 
     <div class="p-col-12">
-      <button pButton type="submit" label="Pesquisar"></button>
+      <button pButton type="submit" label="Pesquisar" (click)="pesquisar()"></button>
     </div>
   </div>
 </form>
@@ -32,7 +32,7 @@
     <div class="p-col-12">
       <app-app-lancamentos-grid (aoMudarPagina)="aoMudarPagina($event)" [lancamentos]="lancamentos"
       [totalRegistros]="totalRegistros" [itensPorPagina]="filtro.itensPorPagina"
-        (lancamentoExcluir)="excluir($event)"></app-app-lancamentos-grid>
+        (lancamentoExcluir)="confirmarExclusao($event)"></app-app-lancamentos-grid>
     </div>
     <div class="p-col-12">
       <a pButton label="Novo Lançamento"></a>
