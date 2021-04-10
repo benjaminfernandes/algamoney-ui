@@ -19,6 +19,14 @@ export class PessoaService {
     private http: HttpClient
   ) {}
 
+  excluir(codigo: Number): Promise<void>{
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+      return this.http.delete(`${this.pessoasUrl}/${codigo}`, {headers})
+        .toPromise()
+          .then();
+  }
 
   pesquisar(filtro: PessoaFiltro): Promise<any>{
     let params = new HttpParams();
@@ -42,6 +50,16 @@ export class PessoaService {
       }
       return resultado;
     });
+  }
+
+  mudarStatusPessoa(codigo: Number, status: boolean): Promise<void>{
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
+      .append("Content-Type", "application/json");
+
+    return this.http.put(`${this.pessoasUrl}/${codigo}/ativo`, status, {headers})
+      .toPromise()
+        .then();
   }
 
   listarTodos(): Promise<any>{

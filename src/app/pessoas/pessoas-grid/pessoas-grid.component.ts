@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-pessoas-grid',
@@ -12,8 +12,15 @@ export class PessoasGridComponent {
 @Input() itensPorPagina;
 
 @Output() aoMudarPagina = new EventEmitter();
- 
+@Output() @ViewChild('tabela') grid;
+@Output() pessoaExcluir = new EventEmitter();
+
 mudarPagina(event) {
     this.aoMudarPagina.emit(event);
+  }
+
+  excluir(event){
+    this.pessoaExcluir.emit(event);
+    this.grid.reset();
   }
 }

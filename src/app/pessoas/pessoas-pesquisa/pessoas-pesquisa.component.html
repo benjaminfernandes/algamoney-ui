@@ -19,7 +19,8 @@
   <div class="p-grid">
     <div class="p-col-12">
       <app-pessoas-grid [pessoas]="pessoas" [itensPorPagina]="filtro.itensPorPagina"
-        [totalRegistros]="totalRegistros" (aoMudarPagina)="aoMudarPagina($event)">
+        [totalRegistros]="totalRegistros" (aoMudarPagina)="aoMudarPagina($event)"
+        (pessoaExcluir)="confirmarExclusao($event)">
       </app-pessoas-grid>
     </div>
     <div class="p-col-12">

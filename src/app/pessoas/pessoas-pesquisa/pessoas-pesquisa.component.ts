@@ -1,4 +1,6 @@
-import { LazyLoadEvent } from 'primeng/api';
+import { ErrorHandlerService } from './../../core/error-handler.service';
+import { ToastrService } from 'ngx-toastr';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
 import { PessoaService, PessoaFiltro } from './../pessoa.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,7 +15,12 @@ export class PessoasPesquisaComponent implements OnInit{
   totalRegistros = 0;
   pessoas = [];
 
-  constructor(private pessoaService: PessoaService){}
+  constructor(
+    private pessoaService: PessoaService,
+    private toastr: ToastrService,
+    private errorHandler: ErrorHandlerService,
+    private confirmationService: ConfirmationService
+  ){}
 
   ngOnInit(){
     this.pesquisar();
@@ -29,9 +36,35 @@ export class PessoasPesquisaComponent implements OnInit{
         this.pessoas = resultado.pessoas;
       });
   }
- 
+
   aoMudarPagina(event: LazyLoadEvent){
     const pagina = (event.first! / event.rows!);
     this.pesquisar(pagina);
+  }
+
+  excluir(codigo: Number){
+    this.pessoaService.excluir(codigo)
+      .then(() => {
+        this.pesquisar();
+
+        this.toastr.success('Pessoa excluída com sucesso!', 'Mensagem!',{
+          timeOut: 5000,
+          progressBar: true
+        })
+      })
+      .catch(error => this.errorHandler.handle(error));
+  }
+
+  confirmarExclusao(pessoa: any){
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(pessoa.codigo);
+      }
+    });
+  }
+
+  mudarStatus(){
+    
   }
 }

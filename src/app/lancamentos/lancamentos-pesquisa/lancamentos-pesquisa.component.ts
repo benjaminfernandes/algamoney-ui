@@ -51,7 +51,7 @@ export class LancamentosPesquisaComponent implements OnInit{
     });
   }
 
-  excluir (lancamento: any){
+  private excluir (lancamento: any){
 
     this.lancamentoService.excluir(lancamento.codigo)
       .then(() => {
