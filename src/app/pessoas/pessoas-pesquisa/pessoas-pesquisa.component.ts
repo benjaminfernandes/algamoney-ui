@@ -64,7 +64,17 @@ export class PessoasPesquisaComponent implements OnInit{
     });
   }
 
-  mudarStatus(){
-    
+  mudarStatus(pessoa: any){
+    this.pessoaService.mudarStatusPessoa(pessoa.codigo, !pessoa.ativo)
+      .then(() => {
+        this.pesquisar();
+
+        const acao = !pessoa.ativo ? 'Ativada' : 'Desativada'
+
+        this.toastr.success(`Pessoa ${acao} com sucesso!`, 'Mensagem!',{
+          timeOut: 5000,
+          progressBar: true
+        })
+      });
   }
 }

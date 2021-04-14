@@ -16,7 +16,8 @@
       <td class="col-data-content"><span class="p-column-title">Estado</span>
         {{ pessoa.endereco.estado }}</td>
       <td class="col-data-content"><span class="p-column-title">Status</span>
-        <a href="javascript:;" [pTooltip]="pessoa.ativo ? 'Desativar' : 'Ativar'">
+        <a href="javascript:;" [pTooltip]="pessoa.ativo ? 'Desativar' : 'Ativar'"
+         (click)="alterarStatus(pessoa)">
           {{ pessoa.ativo ? 'Ativo' : 'Inativo' }}
         </a>
         </td>
