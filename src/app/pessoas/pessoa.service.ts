@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Pessoa } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -70,4 +71,14 @@ export class PessoaService {
       .toPromise()
         .then(response => response['content']);
   }
+
+  salvar(pessoa: Pessoa): Promise<Pessoa>{
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
+      .append('Content-Type', 'application/json');
+
+      return this.http.post<Pessoa>(this.pessoasUrl, pessoa, {headers} )
+        .toPromise();
+  }
+
 }
