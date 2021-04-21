@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -22,6 +23,7 @@ registerLocaleData(localePt);
     CommonModule,
     ToastrModule.forRoot(),
     ConfirmDialogModule,
+    RouterModule
   ],
 
   exports: [

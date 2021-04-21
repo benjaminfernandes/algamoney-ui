@@ -80,5 +80,4 @@ export class PessoaService {
       return this.http.post<Pessoa>(this.pessoasUrl, pessoa, {headers} )
         .toPromise();
   }
-
 }
