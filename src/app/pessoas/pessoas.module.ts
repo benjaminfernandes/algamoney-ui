@@ -33,9 +33,7 @@ import { CommonModule } from '@angular/common';
 
     SharedModule
   ],
-  exports: [
-    PessoasPesquisaComponent,
-    PessoaCadastroComponent
-  ]
+  exports: []
+
 })
 export class PessoasModule { }
