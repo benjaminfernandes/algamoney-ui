@@ -1,3 +1,4 @@
+import { PessoasRoutingModule } from './pessoas-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
@@ -30,6 +31,7 @@ import { CommonModule } from '@angular/common';
     TableModule,
     TooltipModule,
     InputMaskModule,
+    PessoasRoutingModule,
 
     SharedModule
   ],

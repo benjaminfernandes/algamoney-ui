@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { ToastrService } from 'ngx-toastr';
 import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
@@ -19,11 +20,13 @@ export class PessoasPesquisaComponent implements OnInit{
     private pessoaService: PessoaService,
     private toastr: ToastrService,
     private errorHandler: ErrorHandlerService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private title: Title
   ){}
 
   ngOnInit(){
     this.pesquisar();
+    this.title.setTitle('Pesquisa de pessoas')
   }
 
   pesquisar(pagina = 0){
@@ -54,6 +57,7 @@ export class PessoasPesquisaComponent implements OnInit{
       })
       .catch(error => this.errorHandler.handle(error));
   }
+
 
   confirmarExclusao(pessoa: any){
     this.confirmationService.confirm({

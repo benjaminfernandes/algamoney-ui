@@ -25,6 +25,7 @@ excluir(event){
     this.grid.reset();
   }
 
+
 alterarStatus(event){
     this.eventoAlterarStatus.emit(event);
   }
