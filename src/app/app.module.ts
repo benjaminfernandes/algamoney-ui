@@ -1,3 +1,4 @@
+import { SegurancaModule } from './seguranca/seguranca.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 
     LancamentosModule,
     PessoasModule,
+    SegurancaModule,
     CoreModule,
 
   ],
