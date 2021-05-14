@@ -1,3 +1,4 @@
+import { AuthService } from './../seguranca/auth.service';
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -42,6 +43,8 @@ registerLocaleData(localePt);
     ConfirmationService,
     ToastrService,
     Title,
+    AuthService,
+
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ]
 })
