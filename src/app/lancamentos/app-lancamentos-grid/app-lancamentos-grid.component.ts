@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
@@ -6,6 +7,10 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
   styleUrls: ['./app-lancamentos-grid.component.css']
 })
 export class AppLancamentosGridComponent {
+
+constructor(
+  public auth: AuthService
+){}
 
   @Input() lancamentos = [];
   @Input() totalRegistros;

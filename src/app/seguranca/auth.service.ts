@@ -83,4 +83,14 @@ export class AuthService {
       this.armazenarToken(token);
     }
   }
+
+  temQualquerPermissao(roles){
+    for(const role of roles){
+      if(this.temPermissao(role)){
+        return true;
+      }
+    }
+
+    return false;
+  }
 }

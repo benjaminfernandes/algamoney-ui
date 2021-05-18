@@ -32,7 +32,8 @@
     <div class="p-col-12">
       <app-app-lancamentos-grid (aoMudarPagina)="aoMudarPagina($event)" [lancamentos]="lancamentos"
       [totalRegistros]="totalRegistros" [itensPorPagina]="filtro.itensPorPagina"
-        (lancamentoExcluir)="confirmarExclusao($event)"></app-app-lancamentos-grid>
+        (lancamentoExcluir)="confirmarExclusao($event)">
+      </app-app-lancamentos-grid>
     </div>
     <div class="p-col-12">
       <a pButton label="Novo Lançamento" routerLink="/lancamentos/novo"></a>

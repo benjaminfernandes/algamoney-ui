@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { Component, OnInit} from '@angular/core';
 import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
 import { ToastrService } from 'ngx-toastr';

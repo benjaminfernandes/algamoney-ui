@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 
+import { AuthGuard } from './auth.guard';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -37,6 +38,7 @@ export function jwtTokenGetter() {
   declarations: [LoginFormComponent],
   providers: [
     JwtHelperService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MoneyHttpInterceptor,
