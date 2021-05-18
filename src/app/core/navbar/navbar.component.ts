@@ -13,4 +13,9 @@ export class NavbarComponent {
   }
   exibindoMenu = false;
 
+
+  criarNovoAccessToken(){
+    this.auth.obterNovoAccessToken();
+  }
+
 }
