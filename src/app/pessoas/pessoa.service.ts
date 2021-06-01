@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pessoa } from '../core/model';
@@ -14,11 +15,13 @@ export class PessoaFiltro{
 
 export class PessoaService {
 
-  pessoasUrl = 'http://localhost:8080/pessoas';
+  pessoasUrl!: string;
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {
+    this.pessoasUrl = `${environment.apiUrl}/pessoas`;
+  }
 
   excluir(codigo: Number): Promise<void>{
 
