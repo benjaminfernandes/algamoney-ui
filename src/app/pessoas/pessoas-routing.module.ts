@@ -8,17 +8,17 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 
 const routes: Routes = [
   {
-    path: 'pessoas', component: PessoasPesquisaComponent,
+    path: '', component: PessoasPesquisaComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_PESQUISAR_PESSOA'] }
   },
   {
-    path: 'pessoas/novo', component: PessoaCadastroComponent,
+    path: 'novo', component: PessoaCadastroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_CADASTRAR_PESSOA'] }
   },
   {
-    path: 'pessoas/:codigo', component: PessoaCadastroComponent,
+    path: ':codigo', component: PessoaCadastroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_CADASTRAR_PESSOA'] }
   },
