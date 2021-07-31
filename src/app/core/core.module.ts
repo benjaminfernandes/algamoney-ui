@@ -1,3 +1,4 @@
+import { DashboardService } from './../dashboard/dashboard.service';
 import { AuthService } from './../seguranca/auth.service';
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -42,6 +43,7 @@ registerLocaleData(localePt);
     ErrorHandlerService,
     LancamentoService,
     PessoaService,
+    DashboardService,
     ConfirmationService,
     ToastrService,
     Title,
