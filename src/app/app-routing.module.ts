@@ -1,3 +1,4 @@
+import { RelatoriosModule } from './relatorios/relatorios.module';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,8 @@ const routes: Routes = [
   { path: 'pessoas', loadChildren: () => import('./pessoas/pessoas.module').then(m => m.PessoasModule) },
   {path : 'dashboard', loadChildren: () => import('./dashboard/dashboard.module')
   .then(m => m.DashboardModule)},
+  {path: 'relatorios', loadChildren: () => import('./relatorios/relatorios.module')
+  .then(m => m.RelatoriosModule)},
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
   { path: 'nao-autorizado', component: NaoAutorizadoComponentComponent },
