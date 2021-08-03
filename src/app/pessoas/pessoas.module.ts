@@ -10,10 +10,13 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import {DialogModule} from 'primeng/dialog';
 
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { CommonModule } from '@angular/common';
     TooltipModule,
     InputMaskModule,
     PessoasRoutingModule,
+    PanelModule,
+    DialogModule,
 
     SharedModule
   ],

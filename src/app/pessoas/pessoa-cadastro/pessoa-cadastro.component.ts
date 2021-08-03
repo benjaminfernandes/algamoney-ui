@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { FormControl } from '@angular/forms';
-import { Pessoa } from './../../core/model';
+import { Pessoa, Contato } from './../../core/model';
 import { PessoaService } from './../pessoa.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -24,6 +24,8 @@ export class PessoaCadastroComponent implements OnInit {
   ) { }
 
     pessoa = new Pessoa()
+    exibindoFormularioContato = false;
+    contato!: Contato;
 
   ngOnInit(): void {
     const codigoPessoa = this.route.snapshot.params['codigo'];
@@ -34,6 +36,21 @@ export class PessoaCadastroComponent implements OnInit {
       this.carregarPessoa(codigoPessoa);
     }
 
+  }
+
+  prepararNovoContato(){
+    this.exibindoFormularioContato = true;
+    this.contato = new Contato();
+  }
+
+  confirmarContato(form: FormControl){
+    this.pessoa.contatos.push(this.clonarContato(this.contato));
+    this.exibindoFormularioContato = false;
+    form.reset();
+  }
+
+  clonarContato(contato: Contato): Contato{
+    return new Contato(contato.codigo, contato.nome, contato.email, contato.telefone);
   }
 
   carregarPessoa(codigo: Number){
