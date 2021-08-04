@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class LogoutService {
 
-  tokensRevokeUrl = 'http://localhost:8080/tokens/revoke';
+  tokensRevokeUrl = 'http://localhost:8070/tokens/revoke';
 
   constructor(
     private http: HttpClient,

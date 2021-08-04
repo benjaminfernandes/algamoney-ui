@@ -28,8 +28,8 @@ export function jwtTokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter,
-        allowedDomains: ['localhost:8080'],
-        disallowedRoutes: ['http://localhost:8080/oauth/token']
+        allowedDomains: ['localhost:8070'],
+        disallowedRoutes: ['http://localhost:8070/oauth/token']
       }
     }),
 
