@@ -16,13 +16,15 @@ import {DialogModule} from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PessoaCadastroContatoComponent } from './pessoa-cadastro-contato/pessoa-cadastro-contato.component';
 
 
 @NgModule({
   declarations: [
     PessoaCadastroComponent,
     PessoasGridComponent,
-    PessoasPesquisaComponent
+    PessoasPesquisaComponent,
+    PessoaCadastroContatoComponent
   ],
   imports: [
     CommonModule,
