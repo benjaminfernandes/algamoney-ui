@@ -55,6 +55,30 @@ export class LancamentoCadastroComponent implements OnInit {
     this.carregarPessoas();
   }
 
+  get urlUploadAnexo() {
+    return this.lancamentoService.urlUploadAnexo();
+  }
+
+  aoTerminarUploadAnexo(event){
+    const anexo = event.originalEvent.body;
+
+    this.formulario.patchValue({
+      anexo: anexo.nome,
+      urlAnexo: (anexo.url as string).replace('\\', 'https://')
+    });
+  }
+
+  getNomeAnexo(){
+    const nome = this.formulario.get('anexo')?.value;
+    if(nome){
+      return nome.substring(nome.indexOf('_') + 1, nome.length);
+    }
+    return '';
+  }
+  erroUpload(event){
+    this.toasty.error('Erro ao tentar enviar o arquivo de anexo');
+  }
+
   configurarFormulario(){
     this.formulario = this.formBuilder.group({
       codigo: [null],
@@ -71,7 +95,9 @@ export class LancamentoCadastroComponent implements OnInit {
         codigo: [null, Validators.required],
         nome: []
       }),
-      observacao: []
+      observacao: [],
+      anexo: [],
+      urlAnexo: []
     });
   }
 
