@@ -56,4 +56,8 @@ label {
   font-weight: bold;
 }
 
+.label-spaced {
+  margin: 5px;
+}
+
 
