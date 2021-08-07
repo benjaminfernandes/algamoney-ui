@@ -14,6 +14,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PessoaCadastroComponent implements OnInit {
 
+  pessoa = new Pessoa()
+  estados!: any[];
+  cidades!: any[];
+  estadoSelecionado!: any;
+
   constructor(
     private pessoaService: PessoaService,
     private errorHandler: ErrorHandlerService,
@@ -23,12 +28,14 @@ export class PessoaCadastroComponent implements OnInit {
     private title: Title
   ) { }
 
-    pessoa = new Pessoa()
+
 
     ngOnInit(): void {
     const codigoPessoa = this.route.snapshot.params['codigo'];
 
     this.title.setTitle('Nova Pessoa');
+
+    this.carregarEstados();
 
     if(codigoPessoa){
       this.carregarPessoa(codigoPessoa);
@@ -40,7 +47,13 @@ export class PessoaCadastroComponent implements OnInit {
     this.pessoaService.buscaPorCodigo(codigo)
       .then(pessoa => {
         this.pessoa = pessoa;
-        console.log(pessoa)
+
+        this.estadoSelecionado = (this.pessoa.endereco.cidade) ? this.pessoa.endereco.cidade.estado.codigo : null;
+
+        if(this.estadoSelecionado){
+          this.carregarCidades();
+        }
+
         this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandler.handle(erro));;
@@ -89,5 +102,21 @@ export class PessoaCadastroComponent implements OnInit {
   novo(form: FormControl){
     form.reset(new Pessoa);
     this.router.navigate(['/pessoas/novo']);
+  }
+
+  carregarEstados(){
+    this.pessoaService.listarEstados()
+    .then(lista => {
+      this.estados = lista.map(uf => ({ label: uf.nome, value: uf.codigo}))
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarCidades(){
+    this.pessoaService.pesquisarCidades(this.estadoSelecionado)
+    .then(lista => {
+      this.cidades = lista.map(c => ({ label: c.nome, value: c.codigo}))
+    })
+    .catch(erro => this.errorHandler.handle(erro));
   }
 }

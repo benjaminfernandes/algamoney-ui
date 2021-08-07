@@ -12,9 +12,9 @@
   <ng-template pTemplate="body" let-pessoa>
     <tr>
       <td><span class="p-column-title">Nome</span>{{ pessoa.nome }}</td>
-      <td><span class="p-column-title">Cidade</span>{{ pessoa.endereco.cidade }}</td>
+      <td><span class="p-column-title">Cidade</span>{{ pessoa.endereco.cidade?.nome }}</td>
       <td class="col-data-content"><span class="p-column-title">Estado</span>
-        {{ pessoa.endereco.estado }}</td>
+        {{ pessoa.endereco.cidade?.estado.nome }}</td>
       <td class="col-data-content"><span class="p-column-title">Status</span>
         <a href="javascript:;" [pTooltip]="pessoa.ativo ? 'Desativar' : 'Ativar'"
          (click)="alterarStatus(pessoa)">

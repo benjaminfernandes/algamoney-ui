@@ -1,3 +1,4 @@
+import { DropdownModule } from 'primeng/dropdown';
 import { PessoasRoutingModule } from './pessoas-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
@@ -39,6 +40,7 @@ import { PessoaCadastroContatoComponent } from './pessoa-cadastro-contato/pessoa
     PessoasRoutingModule,
     PanelModule,
     DialogModule,
+    DropdownModule,
 
     SharedModule
   ],
