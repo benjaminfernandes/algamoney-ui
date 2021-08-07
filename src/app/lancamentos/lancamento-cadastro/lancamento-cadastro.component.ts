@@ -28,6 +28,7 @@ export class LancamentoCadastroComponent implements OnInit {
   categorias = [];
   //lancamento = new Lancamento();
   formulario!: FormGroup;
+  uploadEmAndamento = false;
 
   constructor(
     private categoriaService: CategoriasService,
@@ -55,6 +56,10 @@ export class LancamentoCadastroComponent implements OnInit {
     this.carregarPessoas();
   }
 
+  antesUploadAnexo() {
+    this.uploadEmAndamento = true;
+  }
+
   get urlUploadAnexo() {
     return this.lancamentoService.urlUploadAnexo();
   }
@@ -66,6 +71,8 @@ export class LancamentoCadastroComponent implements OnInit {
       anexo: anexo.nome,
       urlAnexo: (anexo.url as string).replace('\\', 'https://')
     });
+
+    this.uploadEmAndamento = false;
   }
 
   getNomeAnexo(){
@@ -77,6 +84,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
   erroUpload(event){
     this.toasty.error('Erro ao tentar enviar o arquivo de anexo');
+    this.uploadEmAndamento = false;
   }
 
   configurarFormulario(){
@@ -187,5 +195,12 @@ export class LancamentoCadastroComponent implements OnInit {
 
   atualizarTituloEdicao(){
     this.title.setTitle(`Edição de lançamento: ${this.formulario?.get('descricao')?.value}`);
+  }
+
+  removerAnexo(){
+    this.formulario.patchValue({
+      anexo: null,
+      urlAnexo: null
+    });
   }
 }

@@ -15,6 +15,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputMaskModule} from 'primeng/inputmask';
 import {FileUploadModule} from 'primeng/fileupload';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { AppLancamentosGridComponent } from './app-lancamentos-grid/app-lancamentos-grid.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
@@ -43,6 +44,7 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
     InputMaskModule,
     FileUploadModule,
     LancamentosRoutingModule,
+    ProgressSpinnerModule,
 
     SharedModule
   ],
